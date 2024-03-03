@@ -1,0 +1,128 @@
+// ! navbar brand
+
+// ! navbar main content
+.navbar {
+    background-color: $navbar-bg-color !important;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: top ease-in-out 300ms;
+    .navbar-nav {
+        background-color: $navbar-bg-color;
+        justify-content: space-between;
+        align-items: center;
+        gap: 7%;
+
+
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            i {
+                color: $navbar-text;
+            }
+
+            .nav-link {
+                color: $navbar-text;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .nav-item {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        @media screen and (min-width: 769px) {
+            .nav-item {
+                width: 80%;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .nav-item {
+                width: 95%;
+            }
+        }
+
+        .nav-item:hover {
+            transition: all ease-in-out 150ms;
+
+            i {
+                color: lighten($color: $navbar-text, $amount: 20);
+            }
+
+            .nav-link {
+                color: lighten($color: $navbar-text, $amount: 20);
+            }
+        }
+
+        .active::after {
+            content: '';
+            height: 2px;
+            background-color: $accent-color;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .main-nav:hover::after {
+            @keyframes underline-expand {
+                from {
+                    width: 0%;
+                }
+
+                to {
+                    width: 100%;
+                }
+            }
+
+            content: '';
+            height: 2px;
+            background-color: $accent-color;
+            width: 100%;
+            animation-name: underline-expand;
+            animation-duration: 300ms;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .navbar-right {
+        .navbar-nav {
+            background-color: $navbar-bg-color;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            gap: 15px;
+            .nav-item {
+                .nav-link {
+                    i {
+                        color: $navbar-link;
+                        font-size: 1.8rem;
+                    }
+                }
+
+                .nav-link:hover {
+                    i {
+                        color: darken($color: $navbar-link, $amount: 20);
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .navbar-right{
+            display: none;
+        }
+    }
+}

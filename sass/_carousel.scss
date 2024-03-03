@@ -1,0 +1,34 @@
+.carousel-behind-text {
+    position: relative;
+
+    .carousel-behind-text-overlay {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 300;
+    }
+
+    @keyframes zoomAndPan{
+        from{
+            scale: 1.5;
+            margin-left: 2rem;
+        }
+        50%{
+            scale:1;
+            margin-left: 2rem;
+        }
+        to{
+            scale: 1;
+            margin-left: -1rem;
+        }
+    }
+    .carousel-item{
+        img{
+            animation-name: zoomAndPan;
+            animation-duration: 4500ms;
+            margin-left: -1rem;
+            animation-timing-function: ease-in-out;
+        }
+    }
+}
